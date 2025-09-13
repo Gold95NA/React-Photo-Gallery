@@ -12,7 +12,7 @@ const SearchBar: React.FC<Props> = ({ value, onChangeText }) => {
       <TextInput
         value={value}
         onChangeText={onChangeText}
-        placeholder="Search by ID (1, 10, 31)"
+        placeholder="Search by ID (Enter a Number)"
         placeholderTextColor="#999"
         style={styles.input}
         keyboardType="number-pad"
