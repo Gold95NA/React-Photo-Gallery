@@ -12,7 +12,7 @@ const SearchBar: React.FC<Props> = ({ value, onChangeText }) => {
       <TextInput
         value={value}
         onChangeText={onChangeText}
-        placeholder="Search by ID (Enter a Number)"
+        placeholder="Search by ID (1, 10, 15)"
         placeholderTextColor="#999"
         style={styles.input}
         keyboardType="number-pad"
@@ -22,11 +22,7 @@ const SearchBar: React.FC<Props> = ({ value, onChangeText }) => {
         accessibilityLabel="Search photos by numeric ID"
       />
       {value.length > 0 && (
-        <Pressable
-          onPress={() => onChangeText('')}
-          style={styles.clearBtn}
-          accessibilityLabel="Clear search"
-        >
+        <Pressable onPress={() => onChangeText('')} style={styles.clearBtn} accessibilityLabel="Clear search">
           <Text style={styles.clearTxt}>×</Text>
         </Pressable>
       )}
