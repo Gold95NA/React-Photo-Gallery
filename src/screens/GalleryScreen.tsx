@@ -10,10 +10,10 @@ import {
 } from 'react-native';
 import SearchBar from '../components/SearchBar';
 import { makeImageData, urlForSize } from '../utils/images';
-import type { RootStackParamList } from '../navigation/types';
+import type { PhotoStackParamList } from '../navigation/types';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Gallery'>;
+type Props = NativeStackScreenProps<PhotoStackParamList, 'Gallery'>;
 type ImageData = { id: number; url: string };
 
 const SPACING = 8;

@@ -2,9 +2,9 @@ import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import type { RootStackParamList } from '../navigation/types';
+import type { PhotoStackParamList } from '../navigation/types';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'PhotoModal'>;
+type Props = NativeStackScreenProps<PhotoStackParamList, 'PhotoModal'>;
 
 const PhotoModalScreen: React.FC<Props> = ({ route }) => {
   const { url } = route.params;

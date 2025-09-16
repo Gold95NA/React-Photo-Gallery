@@ -1,60 +1,34 @@
 import React from 'react';
-import { Text, Pressable } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import type { RootStackParamList } from './src/navigation/types';
-import GalleryScreen from './src/screens/GalleryScreen';
-import PhotoDetailScreen from './src/screens/PhotoDetailScreen';
-import PhotoModalScreen from './src/screens/PhotoModalScreen';
-import { Platform } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import type { DrawerParamList } from './src/navigation/types';
+import PhotoStack from './src/navigation/PhotoStack';
+import WeatherScreen from './src/screens/WeatherScreen';
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Drawer = createDrawerNavigator<DrawerParamList>();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <StatusBar style="auto" />
-      <Stack.Navigator
-        initialRouteName="Gallery"
+      <Drawer.Navigator
+        initialRouteName="HW_PhotoGallery"
         screenOptions={{
-          headerTitleAlign: 'center',
+          headerShown: false,
+          drawerPosition: 'right',
+          swipeEnabled: true,
         }}
       >
-        <Stack.Screen
-          name="Gallery"
-          component={GalleryScreen}
-          options={{ title: 'Photo Gallery' }}
+        <Drawer.Screen
+          name="HW_PhotoGallery"
+          component={PhotoStack}
+          options={{ drawerLabel: 'Homework — Photo Gallery' }}
         />
-
-        <Stack.Screen
-          name="PhotoDetail"
-          component={PhotoDetailScreen}
-          options={{ title: 'Photo' }}
+        <Drawer.Screen
+          name="HW_Weather"
+          component={WeatherScreen}
+          options={{ drawerLabel: 'Homework — Weather App' }}
         />
-
-        <Stack.Screen
-          name="PhotoModal"
-          component={PhotoModalScreen}
-          options={({ navigation }) => ({
-            presentation: 'fullScreenModal',
-            headerTitle: '',
-            headerStyle: { backgroundColor: '#000' },
-            headerTintColor: '#fff',
-            headerShadowVisible: false,
-            contentStyle: { backgroundColor: '#000' },
-            headerRight: () => (
-              <Pressable
-                onPress={() => navigation.goBack()}
-                style={{ paddingHorizontal: 12, paddingVertical: 6 }}
-                accessibilityLabel="Close modal"
-              >
-                <Text style={{ color: '#fff', fontSize: 16 }}>Close</Text>
-              </Pressable>
-            ),
-          })}
-        />
-      </Stack.Navigator>
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }
