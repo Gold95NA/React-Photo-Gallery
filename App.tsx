@@ -1,9 +1,10 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import type { DrawerParamList } from './src/navigation/types';
 import PhotoStack from './src/navigation/PhotoStack';
-import WeatherScreen from './src/screens/WeatherScreen';
+import WeatherDrawer from './src/navigation/WeatherDrawer';
 
 const Drawer = createDrawerNavigator<DrawerParamList>();
 
@@ -25,7 +26,7 @@ export default function App() {
         />
         <Drawer.Screen
           name="HW_Weather"
-          component={WeatherScreen}
+          component={WeatherDrawer}
           options={{ drawerLabel: 'Homework — Weather App' }}
         />
       </Drawer.Navigator>
